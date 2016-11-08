@@ -16,7 +16,8 @@
 
     <bean id="app" class="com.yet.spring.serzh.App">
         <constructor-arg index="0" ref="client"/>
-        <constructor-arg index="1" ref="eventLogger"/>
+        <!--<constructor-arg index="1" ref="eventLogger"/>-->
+        <constructor-arg index="1" ref="fileEventLogger"/>
         <constructor-arg index="2" ref="event"/>
     </bean>
 
@@ -28,5 +29,9 @@
     </bean>
 
     <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+
+    <bean id="fileEventLogger" class="com.yet.spring.serzh.FileEventLogger" init-method="init">
+        <constructor-arg value="src/main/resources/temp.txt"/>
+    </bean>
 
 </beans>
