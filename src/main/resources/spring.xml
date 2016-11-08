@@ -34,4 +34,10 @@
         <constructor-arg value="src/main/resources/temp.txt"/>
     </bean>
 
+    <bean id="cacheFileEventLogger" class="com.yet.spring.serzh.CacheFileEventLogger" init-method="init"
+    destroy-method="destroy">
+        <constructor-arg value="src/main/resources/temp.txt"/>
+        <constructor-arg value="2"/>
+    </bean>
+
 </beans>
