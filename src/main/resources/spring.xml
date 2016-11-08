@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="client" class="com.yet.spring.serzh.Client">
+        <!--<constructor-arg index="0" value="1"/>-->
+        <!--<constructor-arg index="1" value="Jhon Smith"/>-->
+        <constructor-arg value="1"/>
+        <constructor-arg value="Jhon Smith"/>
+    </bean>
+
+    <bean id="eventLogger" class="com.yet.spring.serzh.ConsoleEventLogger"/>
+
+    <bean id="app" class="com.yet.spring.serzh.App">
+        <constructor-arg index="0" ref="client"/>
+        <constructor-arg index="1" ref="eventLogger"/>
+        <constructor-arg index="2" ref="event"/>
+    </bean>
+
+    <bean id="event" class="com.yet.spring.serzh.Event" scope="prototype">
+        <constructor-arg>
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg ref="dateFormat"/>
+    </bean>
+
+    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+
+</beans>
