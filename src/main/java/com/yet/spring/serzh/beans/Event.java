@@ -1,4 +1,4 @@
-package com.yet.spring.serzh;
+package com.yet.spring.serzh.beans;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -12,11 +12,11 @@ public class Event {
     int id = new Random().nextInt();
     String msg;
     Date date;
-    private DateFormat df;
+    private DateFormat dateFormat;
 
     public Event(Date date, DateFormat df) {
         this.date = date;
-        this.df = df;
+        this.dateFormat = df;
     }
 
     public void setMsg(String msg) {
@@ -28,7 +28,7 @@ public class Event {
         return "Event{" +
                 "id=" + id +
                 ", msg='" + msg + '\'' +
-                ", date=" + date +
+                ", date=" + dateFormat.format(date) +
                 '}';
     }
 }

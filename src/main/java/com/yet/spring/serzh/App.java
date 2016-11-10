@@ -1,6 +1,8 @@
 package com.yet.spring.serzh;
 
-import org.springframework.context.ApplicationContext;
+import com.yet.spring.serzh.beans.Client;
+import com.yet.spring.serzh.beans.Event;
+import com.yet.spring.serzh.loggers.EventLogger;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,10 +25,10 @@ public class App {
         App app = (App) ctx.getBean("app");
         App app2 = ctx.getBean(App.class);
 
-        app.logEvent("Some event for user 1");
-        app.logEvent("Some event for user 2");
+        app.logEvent("Some 23 event for user 1");
+        app.logEvent("Some 23 event for user 2");
 
-        app2.logEvent("Some event for user 1");
+        app2.logEvent("Some 23 event for user 1");
         ctx.close();
     }
 

@@ -1,4 +1,4 @@
-package com.yet.spring.serzh;
+package com.yet.spring.serzh.beans;
 
 /**
  * Created by Serzh on 11/8/16.

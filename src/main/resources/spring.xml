@@ -5,14 +5,14 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-    <bean id="client" class="com.yet.spring.serzh.Client">
+    <bean id="client" class="com.yet.spring.serzh.beans.Client">
         <!--<constructor-arg index="0" value="1"/>-->
         <!--<constructor-arg index="1" value="Jhon Smith"/>-->
         <constructor-arg value="1"/>
         <constructor-arg value="Jhon Smith"/>
     </bean>
 
-    <bean id="eventLogger" class="com.yet.spring.serzh.ConsoleEventLogger"/>
+    <bean id="eventLogger" class="com.yet.spring.serzh.loggers.ConsoleEventLogger"/>
 
     <bean id="app" class="com.yet.spring.serzh.App">
         <constructor-arg index="0" ref="client"/>
@@ -21,7 +21,7 @@
         <constructor-arg index="2" ref="event"/>
     </bean>
 
-    <bean id="event" class="com.yet.spring.serzh.Event" scope="prototype">
+    <bean id="event" class="com.yet.spring.serzh.beans.Event" scope="prototype">
         <constructor-arg>
             <bean class="java.util.Date"/>
         </constructor-arg>
@@ -30,13 +30,14 @@
 
     <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
 
-    <bean id="fileEventLogger" class="com.yet.spring.serzh.FileEventLogger" init-method="init">
+    <bean id="fileEventLogger" class="com.yet.spring.serzh.loggers.FileEventLogger" init-method="init">
         <constructor-arg value="src/main/resources/temp.txt"/>
     </bean>
 
-    <bean id="cacheFileEventLogger" class="com.yet.spring.serzh.CacheFileEventLogger" init-method="init"
-    destroy-method="destroy">
-        <constructor-arg value="src/main/resources/temp.txt"/>
+    <!--<bean id="cacheFileEventLogger" class="com.yet.spring.serzh.loggers.CacheFileEventLogger" parent="fileEventLogger" init-method="init"-->
+    <bean id="cacheFileEventLogger" class="com.yet.spring.serzh.loggers.CacheFileEventLogger" parent="fileEventLogger"
+          destroy-method="destroy">
+        <!--<constructor-arg value="src/main/resources/temp.txt"/>-->
         <constructor-arg value="2"/>
     </bean>
 

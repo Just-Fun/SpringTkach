@@ -1,5 +1,6 @@
-package com.yet.spring.serzh;
+package com.yet.spring.serzh.loggers;
 
+import com.yet.spring.serzh.beans.Event;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

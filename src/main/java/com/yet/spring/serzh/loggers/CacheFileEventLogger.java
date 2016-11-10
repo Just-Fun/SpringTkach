@@ -1,4 +1,6 @@
-package com.yet.spring.serzh;
+package com.yet.spring.serzh.loggers;
+
+import com.yet.spring.serzh.beans.Event;
 
 import java.util.ArrayList;
 import java.util.List;
